@@ -44,9 +44,9 @@ The root types are the query type, mutation type, and subscription type, which a
 *  These are the arguments provided to the field in the GraphQL query. Following our example, this will be the id argument for the book query book(id: Int!): Book.
 
 3. context
-* This is an object that every resolver can read from or write to. You can keep objects that give access to database or that contain information from the HTTP request headers here. Unlike the root and args parameters, their values vary based on what level in the execution chain the resolver is called from. The context object is the same across resolvers, and you can write contextual information to it as needed. We will use this argument in the next post, so stay tuned!.
+* This is an object that every resolver can read from or write to. You can keep objects that give access to database or that contain information from the HTTP request headers here. Unlike the root and args parameters, their values vary based on what level in the execution chain the resolver is called from. The context object is the same across resolvers, and you can write contextual information to it as needed.
 
   
 
 4. info
-* Taking definition from here, it holds field-specific information relevant to the current query as well as the schema details. To learn more about it, you can read this excellent post on the subject.
+* Taking definition from here, it holds field-specific information relevant to the current query as well as the schema details. 
