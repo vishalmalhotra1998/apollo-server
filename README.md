@@ -34,7 +34,9 @@ The root types are the query type, mutation type, and subscription type, which a
   
 
 **Resolver** 
-* Our API is able to run two query operations: one to retrieve an array of books and another to retrieve a book based on its id. The next step for us is to define how these queries get resolved so that the right fields are returned to the client.
+* A resolver is a function that resolves a value for a type or field in a schema. Resolvers can return objects or scalars like Strings, Numbers, Booleans, etc. If an Object is returned, execution continues to the next child field. If a scalar is returned (typically at a leaf node), execution completes. If null is returned, execution halts and does not continue.
+Resolvers can be asynchronous too! They can resolve values from another REST API, database, cache, constant, etc.
+
 * Those are the four  arguments that every resolver function receives. They are described as:
 
  1. root
