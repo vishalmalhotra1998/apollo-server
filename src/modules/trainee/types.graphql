@@ -1,0 +1,10 @@
+type Trainee {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+input UpdateTrainee {
+  name: String
+  email: String
+}

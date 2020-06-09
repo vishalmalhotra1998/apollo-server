@@ -22,7 +22,7 @@ class Server {
     } = this;
 
     app.listen(port, () => {
-      console.log("App is Running on Port", port);
+      console.log('App is Running on Port', port);
     });
 
     return this;

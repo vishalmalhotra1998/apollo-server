@@ -18,10 +18,12 @@
         "react/prop-types": 0,
         "no-var": 2,
         "linebreak-style": [2, "unix"],
-        "semi": [1, "always"]
+        "semi": [1, "always"],
+        "quotes": [2, "single", { "avoidEscape": true }]
     },
     "env": {
-        "node": true
+        "node": true,
+        "es6": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
