@@ -1,10 +1,11 @@
 {
-  "name": "apollo-server",
+  "name": "apollo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
     "airbnb": "0.0.2",
+    "apollo-server": "^2.14.3",
     "apollo-server-express": "^2.14.2",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
