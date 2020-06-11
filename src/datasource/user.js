@@ -3,7 +3,7 @@ import { RESTDataSource } from 'apollo-datasource-rest';
 class UserApi extends RESTDataSource {
   constructor(config) {
     super();
-    this.baseURL = config.URL;
+    this.baseURL = `${config.URL}/api/user`;
   }
   getMe = () => {
 
@@ -11,7 +11,7 @@ class UserApi extends RESTDataSource {
 
   loginUser = (payload) => {
     const { email, password } = payload;
-    return this.post('user/login', { email, password });
+    return this.post('/login', { email, password });
   };
 }
 
