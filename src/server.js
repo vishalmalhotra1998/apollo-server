@@ -1,6 +1,7 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { createServer } from 'http';
+import UserApi from './datasource/user';
 
 class Server {
 
@@ -26,9 +27,12 @@ class Server {
   };
 
   setUpApollo = async (schema) => {
-    const { app } = this;
+    const { app, config} = this;
     this.server = new ApolloServer({
       ...schema,
+      dataSources: ()=>({
+          userApi: new UserApi(config),
+        })
     });
     this.server.applyMiddleware({ app });
     this.httpServer = createServer(app);
