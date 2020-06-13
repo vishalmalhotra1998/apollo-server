@@ -1,10 +1,25 @@
 type Trainee {
-  id: ID!
+  _id: ID!
   name: String!
   email: String!
+  role: String!
+  originalId: ID!
+  createdAt: String!
 }
 
 input UpdateTrainee {
   name: String
   email: String
+  password: String
+}
+
+input GetAllTrainee {
+  skip: Int
+  limit: Int
+}
+
+type CreateTrainee {
+  name: String!
+  email: String!
+  role: String!
 }

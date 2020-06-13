@@ -1,8 +1,20 @@
-import User from '../../service/user';
+import { UserInputError } from 'apollo-server';
 
 const resolver = {
-  getAllTrainee: () => User.list(),
-  getPerticularTrainee: (parent, args) => User.getPerticularData(args),
+  getAllTrainee: async (parent, args, context) => {
+    try {
+      const { dataSources } = context;
+      const response = await dataSources.traineeApi.list(args);
+      const { data } = response;
+      const { records } = data;
+      return records;
+    }
+    catch (error) {
+      return new UserInputError('Arguments are invalid', {
+        invalidArgs: Object.keys(args)
+      });
+    }
+  }
 };
 
 export default resolver;

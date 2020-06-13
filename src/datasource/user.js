@@ -5,13 +5,16 @@ class UserApi extends RESTDataSource {
     super();
     this.baseURL = `${config.URL}/api/user`;
   }
-  getMe = () => {
+  willSendRequest(request) {
+    request.headers.set('Authorization', this.context.token);
+  }
 
-  };
+  getMe = () => this.get('/me');
 
   loginUser = (payload) => {
     const { email, password } = payload;
     return this.post('/login', { email, password });
+
   };
 }
 

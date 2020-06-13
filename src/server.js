@@ -1,7 +1,7 @@
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { createServer } from 'http';
-import { UserApi } from './datasource';
+import { UserApi, TraineeApi } from './datasource';
 
 class Server {
 
@@ -32,7 +32,16 @@ class Server {
       ...schema,
       dataSources: () => ({
         userApi: new UserApi(config),
-      })
+        traineeApi: new TraineeApi(config),
+      }),
+      context: ({req})=>{
+        if(req){
+          return {
+            token : req.headers.authorization
+          };
+        }
+        return {};
+      }
     });
     this.server.applyMiddleware({ app });
     this.httpServer = createServer(app);

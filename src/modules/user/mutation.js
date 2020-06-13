@@ -13,7 +13,7 @@ const resolver = {
         invalidArgs: Object.keys(args)
       });
     }
-  }
+  },
 };
 
 export default resolver;
