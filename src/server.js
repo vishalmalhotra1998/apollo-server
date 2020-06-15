@@ -8,11 +8,17 @@ class Server {
     this.config = config;
   }
 
+  bootStrap = () => {
+    this.setUpRoutes();
+    return this;
+  };
+
   run = () => {
     const {
       app,
       config: { PORT: port },
     } = this;
+
     app.listen(port, () => {
       console.log('App is Running on Port', port);
     });
@@ -27,6 +33,14 @@ class Server {
     });
     this.server.applyMiddleware({ app });
     this.run();
+  };
+
+  setUpRoutes = () => {
+    const { app } = this;
+    app.get('/health', () => {
+      console.log('I am Ok');
+    });
+    return this;
   };
 }
 
