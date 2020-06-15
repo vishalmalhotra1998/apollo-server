@@ -37,8 +37,9 @@ class Server {
 
   setUpRoutes = () => {
     const { app } = this;
-    app.get('/health', () => {
+    app.get('/health', (req,res) => {
       console.log('I am Ok');
+      res.send('I am OK');
     });
     return this;
   };
