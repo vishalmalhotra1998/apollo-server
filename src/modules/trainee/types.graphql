@@ -6,14 +6,17 @@ type Trainee {
   originalId: ID!
   createdAt: String!
 }
-
+type GetAllTrainee{
+  records: [Trainee]!
+  count: Int!
+}
 input UpdateTrainee {
   name: String
   email: String
   password: String
 }
 
-input GetAllTrainee {
+input GetAllTraineeCredentials {
   skip: Int
   limit: Int
 }

@@ -6,8 +6,9 @@ const resolver = {
       const { dataSources } = context;
       const response = await dataSources.traineeApi.list(args);
       const { data } = response;
-      const { records } = data;
-      return records;
+      console.log(data);
+      const { records, count } = data;
+      return { records, count };
     }
     catch (error) {
       return new UserInputError('Arguments are invalid', {
@@ -17,4 +18,10 @@ const resolver = {
   }
 };
 
-export default resolver;
+const nestedResolver = ({
+  Trainee: {
+    records: (parent) => parent.records
+  }
+});
+
+export { resolver, nestedResolver };
