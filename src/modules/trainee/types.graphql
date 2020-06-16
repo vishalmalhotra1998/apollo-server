@@ -6,9 +6,9 @@ type Trainee {
   originalId: ID!
   createdAt: String!
 }
-type GetAllTrainee{
-  records: [Trainee]!
+type GetTrainee {
   count: Int!
+  records: [Trainee]!
 }
 input UpdateTrainee {
   name: String

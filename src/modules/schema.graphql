@@ -1,8 +1,7 @@
 type Query {
   getMyProfile: User!
-  getAllTrainee(data: GetAllTraineeCredentials): [GetAllTrainee]!
+  getAllTrainee(options: GetAllTraineeCredentials): GetTrainee!
   getMe: User!
-  records: [Trainee]!
 }
 
 type Mutation {
