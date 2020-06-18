@@ -7,6 +7,7 @@ const resolver = {
     try {
       const { dataSources } = context;
       const response = await dataSources.traineeApi.createTrainee(args);
+      console.log(response);
       const { data } = response;
       pubsub.publish(subscription.TRAINEE_ADDED, { traineeAdded: data });
       return data;

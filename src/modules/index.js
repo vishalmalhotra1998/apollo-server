@@ -7,6 +7,7 @@ const typesArray = fileLoader(path.join(__dirname, './**/*.graphql'));
 const typeDefs = mergeTypes(typesArray, { all: true });
 const { Query , userMutation } = user;
 const { traineeMutation, traineeQuery, traineeSubscription } = trainee;
+console.log(traineeQuery);
 export default {
   resolvers: {
     Query: {

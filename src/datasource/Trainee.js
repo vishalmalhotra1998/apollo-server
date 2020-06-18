@@ -11,6 +11,7 @@ class TraineeApi extends RESTDataSource {
   }
   createTrainee = (body) => {
     const { name, email, password } = body;
+    console.log(body);
     return this.post('/', { name, email, password });
   }
   updateTrainee = (body) => {
@@ -21,9 +22,9 @@ class TraineeApi extends RESTDataSource {
     const { id } = params;
     return this.delete(`/${id}`);
   }
-  list = (options) => {
-    const { data } = options;
-    const { skip, limit } = data;
+  list = (query) => {
+    const { options } = query;
+    const { skip, limit } = options;
     return this.get('/', {
       skip,
       limit
