@@ -11,7 +11,6 @@ class TraineeApi extends RESTDataSource {
   }
   createTrainee = (body) => {
     const { name, email, password } = body;
-    console.log(body);
     return this.post('/', { name, email, password });
   }
   updateTrainee = (body) => {
