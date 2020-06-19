@@ -1,7 +1,7 @@
 type Query {
   getMyProfile: User!
   getAllTrainee: [Trainee]!
-  getPerticularTrainee(id: ID!): Trainee!
+  getTrainee(id: ID!): Trainee!
 }
 
 type Mutation {
