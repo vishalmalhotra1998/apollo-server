@@ -7,7 +7,6 @@ const resolver = {
     try {
       const { dataSources } = context;
       const response = await dataSources.traineeApi.createTrainee(args);
-      console.log(response);
       const { data } = response;
       pubsub.publish(subscription.TRAINEE_ADDED, { traineeAdded: data });
       return data;
@@ -21,10 +20,11 @@ const resolver = {
   updateTrainee: async (parent, args, context) => {
     try {
       const { dataSources } = context;
+      const { update: {name, email}} = args;
       const response = await dataSources.traineeApi.updateTrainee(args);
       const { data } = response;
       const { id } = data;
-      pubsub.publish(subscription.TRAINEE_UPDATED, { traineeUpdated: id });
+      pubsub.publish(subscription.TRAINEE_UPDATED, { traineeUpdated: { originalId: id, name, email } });
       return id;
     }
     catch (error) {
