@@ -5,14 +5,10 @@ type Query {
 }
 
 type Mutation {
-  createTrainee(
-    name: String!
-    email: String!
-    password: String!
-  ): CreateTrainee!
-  updateTrainee(id: ID!, update: UpdateTrainee!): ID!
-  deleteTrainee(id: ID): ID!
-  loginUser(payload: InputCredentials): String!
+createTrainee(name: String!, email: String!,password: String!): Trainee!
+updateTrainee(id: ID!, update: UpdateTrainee!): ID!
+deleteTrainee(id: ID!): ID!
+loginUser(payload: InputCredentials): String!
 }
 
 type Subscription {

@@ -5,8 +5,8 @@ import pubsub from '../pubsub';
 const resolver = {
   createTrainee: async (parent, args, context) => {
     try {
-      const { dataSources } = context;
-      const response = await dataSources.traineeApi.createTrainee(args);
+      const { dataSources: { traineeApi } } = context;
+      const response = await traineeApi.createTrainee(args);
       const { data } = response;
       pubsub.publish(subscription.TRAINEE_ADDED, { traineeAdded: data });
       return data;
@@ -19,9 +19,9 @@ const resolver = {
   },
   updateTrainee: async (parent, args, context) => {
     try {
-      const { dataSources } = context;
-      const { update: {name, email}} = args;
-      const response = await dataSources.traineeApi.updateTrainee(args);
+      const { dataSources: { traineeApi } } = context;
+      const { update: { name, email } } = args;
+      const response = await traineeApi.updateTrainee(args);
       const { data } = response;
       const { id } = data;
       pubsub.publish(subscription.TRAINEE_UPDATED, { traineeUpdated: { originalId: id, name, email } });
@@ -35,8 +35,8 @@ const resolver = {
   },
   deleteTrainee: async (parent, args, context) => {
     try {
-      const { dataSources } = context;
-      const response = await dataSources.traineeApi.deleteTrainee(args);
+      const { dataSources: { traineeApi } } = context;
+      const response = await traineeApi.deleteTrainee(args);
       const { data } = response;
       const { id } = data;
       pubsub.publish(subscription.TRAINEE_DELETED, { traineeDeleted: id });

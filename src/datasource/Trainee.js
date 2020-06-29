@@ -1,10 +1,11 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
+import configuration from '../config/configuration';
 
 class TraineeApi extends RESTDataSource {
 
-  constructor(config) {
+  constructor() {
     super();
-    this.baseURL = `${config.URL}/api/trainee`;
+    this.baseURL = `${configuration.URL}/api/trainee`;
   }
   willSendRequest(request) {
     request.headers.set('Authorization', this.context.token);

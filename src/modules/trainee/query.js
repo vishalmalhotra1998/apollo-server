@@ -3,8 +3,8 @@ import { UserInputError } from 'apollo-server';
 const resolver = {
   getAllTrainee: async (parent, args, context) => {
     try {
-      const { dataSources } = context;
-      const response = await dataSources.traineeApi.list(args);
+      const { dataSources: { traineeApi } } = context;
+      const response = await traineeApi.list(args);
       const { data } = response;
       return data;
     }

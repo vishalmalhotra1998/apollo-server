@@ -10,8 +10,8 @@ const resolver = {
   getMyProfile: () => data,
   getMe: async (parent, args, context) => {
     try {
-      const { dataSources } = context;
-      const response = await dataSources.userApi.getMe();
+      const { dataSources: { userApi } } = context;
+      const response = await userApi.getMe();
       const { data } = response;
       return data;
     }

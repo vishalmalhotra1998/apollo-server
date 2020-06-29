@@ -4,5 +4,5 @@ import schema from './modules';
 
 const server = new Server(config);
 
-server.setUpApollo(schema);
+server.bootStrap().setUpApollo(schema);
 

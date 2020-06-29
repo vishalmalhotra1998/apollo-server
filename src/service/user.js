@@ -31,10 +31,11 @@ class User {
   delete = (data) => {
     const { id } = data;
     const { user } = this;
-    user.delete([...user].find((user) => user.id === Number(id)));
+    const deletedUser= [...user].find((user) => user.id === Number(id));
+    user.delete(deletedUser);
     return id;
   };
-  getPerticularData = (data) => {
+  getTrainee = (data) => {
     const { id } = data;
     const { user } = this;
     const searchedData = [...user].find((user) => user.id === Number(id));

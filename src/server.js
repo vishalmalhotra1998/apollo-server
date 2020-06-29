@@ -10,7 +10,7 @@ class Server {
     this.config = config;
   }
 
-  bootstrap = () => {
+  bootStrap = () => {
     this.setUpRoutes();
     return this;
   };
@@ -27,12 +27,12 @@ class Server {
   };
 
   setUpApollo = async (schema) => {
-    const { app, config } = this;
+    const { app } = this;
     this.server = new ApolloServer({
       ...schema,
       dataSources: () => ({
-        userApi: new UserApi(config),
-        traineeApi: new TraineeApi(config),
+        userApi: new UserApi(),
+        traineeApi: new TraineeApi(),
       }),
       context: ({req})=>{
         if(req){
@@ -51,8 +51,8 @@ class Server {
 
   setUpRoutes = () => {
     const { app } = this;
-    app.get('/health', (req, res) => {
-      res.send('I am Ok');
+    app.get('/health', (req,res) => {
+      res.send('I am OK');
     });
     return this;
   };
