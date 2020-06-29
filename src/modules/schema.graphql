@@ -1,13 +1,13 @@
 type Query {
   getMyProfile: User!
   getAllTrainee: [Trainee]!
-  getPerticularTrainee(id: ID): Trainee!
+  getTrainee(id: ID!): Trainee!
 }
 
 type Mutation {
 createTrainee(name: String!, email: String!): Trainee!
 updateTrainee(id: ID!, update: UpdateTrainee!): Trainee!
-deleteTrainee(id: ID): ID!
+deleteTrainee(id: ID!): ID!
 }
 
 type Subscription {

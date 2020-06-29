@@ -10,10 +10,6 @@
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
     "dotenv": "^8.2.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.21.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
     "express": "^4.17.1",
     "graphql": "^15.1.0",
     "merge-graphql-schemas": "^1.7.8"

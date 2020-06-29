@@ -1,11 +1,7 @@
-const data = {
-  id: 1,
-  name: 'Vishal Malhotra',
-  email: 'vishal.malhotra@successive.tech',
-};
+import userData from './constant';
 
 const resolver = {
-  getMyProfile: () => data,
+  getMyProfile: () => userData,
 };
 
 export default resolver;
