@@ -9,3 +9,9 @@ createTrainee(name: String!, email: String!): Trainee!
 updateTrainee(id: ID!, update: UpdateTrainee!): Trainee!
 deleteTrainee(id: ID!): ID!
 }
+
+type Subscription {
+    traineeAdded: Trainee!
+    traineeUpdated: Trainee!
+    traineeDeleted: ID!
+}
