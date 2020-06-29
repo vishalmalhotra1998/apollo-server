@@ -10,7 +10,7 @@ class Server {
     this.config = config;
   }
 
-  bootstrap = () => {
+  bootStrap = () => {
     this.setUpRoutes();
     return this;
   };
@@ -42,8 +42,8 @@ class Server {
 
   setUpRoutes = () => {
     const { app } = this;
-    app.get('/health', (req, res) => {
-      res.send('I am Ok');
+    app.get('/health', (req,res) => {
+      res.send('I am OK');
     });
     return this;
   };
