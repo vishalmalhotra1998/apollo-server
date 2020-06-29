@@ -27,11 +27,11 @@ class Server {
   };
 
   setUpApollo = async (schema) => {
-    const { app, config } = this;
+    const { app } = this;
     this.server = new ApolloServer({
       ...schema,
       dataSources: () => ({
-        userApi: new UserApi(config),
+        userApi: new UserApi(),
       })
     });
     this.server.applyMiddleware({ app });

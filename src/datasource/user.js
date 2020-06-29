@@ -1,9 +1,9 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
-
+import configuration from '../config/configuration';
 class UserApi extends RESTDataSource {
-  constructor(config) {
+  constructor() {
     super();
-    this.baseURL = `${config.URL}/api/user`;
+    this.baseURL = `${configuration.URL}/api/user`;
   }
   getMe = () => {
 
