@@ -1,13 +1,5 @@
-import { UserInputError } from 'apollo-server';
-
-const data = {
-  id: 1,
-  name: 'Vishal Malhotra',
-  email: 'vishal.malhotra@successive.tech',
-};
-
+import { errorHandler } from '../../libs/errorHandler';
 const resolver = {
-  getMyProfile: () => data,
   getMe: async (parent, args, context) => {
     try {
       const { dataSources: { userApi } } = context;
@@ -16,9 +8,9 @@ const resolver = {
       return data;
     }
     catch (error) {
-      return new UserInputError('Arguments are invalid', {
-        invalidArgs: Object.keys(args)
-      });
+      const errorData= errorHandler(error);
+      const { message }= errorData;
+      return  new Error(message);
     }
   }
 };

@@ -10,10 +10,16 @@ type GetTrainee {
   count: Int!
   records: [Trainee]!
 }
-input UpdateTrainee {
+input UpdateData {
   name: String
   email: String
   password: String
+}
+
+input InputTraineeData {
+  name: String!
+  email: String!
+  password: String!
 }
 
 input GetAllTraineeCredentials {
@@ -25,4 +31,10 @@ type CreateTrainee {
   name: String!
   email: String!
   role: String!
+}
+
+type UpdateTrainee{
+  name: String!,
+  email: String!,
+  originalId: ID!
 }
