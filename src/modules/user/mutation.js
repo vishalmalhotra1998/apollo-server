@@ -1,5 +1,4 @@
-import { UserInputError } from 'apollo-server';
-
+import { errorHandler } from '../../libs/errorHandler';
 const resolver = {
   loginUser: async (parent, args, context) => {
     try {
@@ -9,11 +8,11 @@ const resolver = {
       const { data } = response;
       return data;
     } catch (error) {
-      return new UserInputError('Arguments are invalid', {
-        invalidArgs: Object.keys(args)
-      });
+      const errorData= errorHandler(error);
+      const { message }= errorData;
+      return  new Error(message);
     }
-  }
+  },
 };
 
 export default resolver;
